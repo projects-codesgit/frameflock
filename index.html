@@ -2,123 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="description" content="A creative marketplace connecting independent photographers, studios and media agencies with ambitious small businesses.">
 <title>Framefolk — Creative work, connected</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 :root {
-  --bg-dark: #07120e;
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.45);
-  --glass-border-light: rgba(255, 255, 255, 0.7);
-  --glass-dark-bg: rgba(18, 32, 26, 0.65);
-  --glass-dark-border: rgba(255, 255, 255, 0.12);
-  --text-primary: #0f1c16;
-  --text-muted: #4b5851;
-  --lime-accent: #b4f038;
-  --lime-glow: rgba(180, 240, 56, 0.4);
+  --bg-dark: #06110c;
+  --glass-bg-light: rgba(255, 255, 255, 0.62);
+  --glass-border-light: rgba(255, 255, 255, 0.55);
+  --glass-dark-bg: rgba(14, 28, 22, 0.72);
+  --glass-dark-border: rgba(255, 255, 255, 0.14);
+  --lime-accent: #b8f535;
+  --lime-glow: rgba(184, 245, 53, 0.35);
   --teal-accent: #2dd4bf;
-  --forest-dark: #12251d;
-  --shadow-glass: 0 20px 40px -15px rgba(0, 15, 10, 0.12), 0 0 15px rgba(255,255,255,0.3) inset;
-  --shadow-hover: 0 30px 60px -12px rgba(0, 25, 15, 0.22), 0 0 25px rgba(255,255,255,0.6) inset;
+  --shadow-glass: 0 20px 45px -15px rgba(0, 15, 10, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --shadow-dark-glass: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
+/* 1. Universal Reset & Mobile Overflow Guardrails */
+*, ::before, ::after {
+  box-sizing: border-box;
   margin: 0;
-  background: var(--bg-dark);
-  color: var(--text-primary);
-  font-family: "DM Sans", sans-serif;
-  min-height: 100vh;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
   position: relative;
+  background-color: var(--bg-dark);
+  color: #f1f5f3;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Background Animated Gradient Mesh & Glowing Liquid Orbs */
+/* 2. Liquid Ambient Orbs Container (Performance Accelerated) */
 .liquid-bg-container {
   position: fixed;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, #0d2219 0%, #050c09 100%);
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, #0c2017 0%, #040a07 100%);
+  transform: translateZ(0);
 }
 
-.orb {
+.ambient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.65;
-  animation: floatOrb 22s infinite alternate ease-in-out;
+  filter: blur(75px);
+  -webkit-filter: blur(75px);
+  opacity: 0.6;
+  pointer-events: none;
+  max-width: 100vw;
+  animation: floatOrb 24s infinite alternate ease-in-out;
+  will-change: transform;
 }
 
 .orb-1 {
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, rgba(180,240,56,0.55) 0%, rgba(36,62,50,0) 70%);
-  top: -100px;
-  left: -100px;
+  width: min(520px, 85vw);
+  height: min(520px, 85vw);
+  background: radial-gradient(circle, rgba(184, 245, 53, 0.45) 0%, rgba(12, 32, 23, 0) 70%);
+  top: -120px;
+  left: -120px;
   animation-duration: 18s;
 }
 
 .orb-2 {
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, rgba(45,212,191,0.45) 0%, rgba(20,50,35,0) 70%);
-  top: 40%;
-  right: -150px;
-  animation-duration: 25s;
+  width: min(600px, 90vw);
+  height: min(600px, 90vw);
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.38) 0%, rgba(5, 20, 15, 0) 70%);
+  top: 35%;
+  right: -120px;
+  animation-duration: 26s;
 }
 
 .orb-3 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(147,212,58,0.4) 0%, rgba(10,30,20,0) 70%);
+  width: min(480px, 80vw);
+  height: min(480px, 80vw);
+  background: radial-gradient(circle, rgba(162, 230, 40, 0.3) 0%, rgba(4, 10, 7, 0) 70%);
   bottom: -100px;
-  left: 20%;
-  animation-duration: 20s;
-}
-
-.orb-4 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,134,104,0.3) 0%, rgba(30,15,10,0) 70%);
-  top: 20%;
-  left: 35%;
-  animation-duration: 30s;
+  left: 5%;
+  animation-duration: 22s;
 }
 
 @keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate(60px, 80px) scale(1.1) rotate(180deg); }
-  100% { transform: translate(-40px, 40px) scale(0.95) rotate(360deg); }
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(35px, 45px, 0) scale(1.06); }
+  100% { transform: translate3d(-25px, 25px, 0) scale(0.96); }
 }
 
-/* Base Glassmorphism Class */
+/* 3. Base Glassmorphism Framework */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.62);
+  background: var(--glass-bg-light);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  border-top: 1px solid var(--glass-border-light);
-  border-left: 1px solid var(--glass-border-light);
+  border: 1px solid var(--glass-border-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow: var(--shadow-glass);
 }
 
 .glass-panel-dark {
   background: var(--glass-dark-bg);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(22px) saturate(190%);
+  -webkit-backdrop-filter: blur(22px) saturate(190%);
+  border: 1px solid var(--glass-dark-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: var(--shadow-dark-glass);
 }
 
-/* Glass Refraction Specular Highlight */
 .glass-specular {
   position: relative;
   overflow: hidden;
@@ -131,12 +131,7 @@ body {
   left: -150%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.35),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transform: skewX(-25deg);
   transition: left 0.75s ease;
   pointer-events: none;
@@ -147,296 +142,309 @@ body {
   left: 150%;
 }
 
-/* Shell & Typography */
+/* 4. Layout Shell */
 .shell {
-  width: min(1190px, calc(100% - 48px));
-  margin: auto;
+  width: min(1190px, calc(100% - 32px));
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .font-heading {
   font-family: "Manrope", sans-serif;
 }
 
-/* Header & Nav */
+/* 5. Header & Navigation */
 .topbar {
-  height: 82px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: sticky;
-  top: 16px;
-  z-index: 40;
-  border-radius: 99px;
-  padding: 0 28px;
-  margin-top: 16px;
+  top: 12px;
+  z-index: 50;
+  border-radius: 100px;
+  padding: 0 20px;
+  margin-top: 12px;
 }
 
 .logo {
-  font: 800 25px Manrope;
-  letter-spacing: -1.6px;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  font: 800 22px/1 "Manrope", sans-serif;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 .logo b { color: var(--lime-accent); }
 
-.nav {
+.nav-desktop {
   display: flex;
-  gap: 32px;
-  font-size: 14px;
+  gap: 28px;
+  font-size: 13.5px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
 }
-.nav a {
-  transition: all 0.2s ease;
+.nav-desktop a {
+  transition: color 0.2s ease;
 }
-.nav a:hover {
+.nav-desktop a:hover {
   color: var(--lime-accent);
-  text-shadow: 0 0 12px var(--lime-glow);
 }
 
-/* Custom Glass Buttons */
+/* Mobile Slide-down Drawer */
+.mobile-drawer {
+  position: fixed;
+  top: 88px;
+  left: 16px;
+  right: 16px;
+  z-index: 45;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translateY(-20px) scale(0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-drawer.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 6. Touch-optimized Glass Buttons */
 .btn {
   border: 0;
   border-radius: 100px;
   padding: 12px 22px;
+  min-height: 44px;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  position: relative;
-  overflow: hidden;
-  text-shadow: none;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.3);
 }
 
 .btn:active {
-  transform: translateY(-1px);
+  transform: translateY(0);
 }
 
 .btn-lime {
-  background: linear-gradient(135deg, #c7f85e 0%, #a2e022 100%);
-  color: #0d1a14;
-  box-shadow: 0 8px 20px rgba(162, 224, 34, 0.35), inset 0 1px 0 rgba(255,255,255,0.6);
+  background: linear-gradient(135deg, #c5f743 0%, #9be01a 100%);
+  color: #08140e;
+  box-shadow: 0 8px 20px var(--lime-glow), inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
 .btn-dark {
-  background: rgba(15, 28, 22, 0.85);
-  color: white;
+  background: rgba(12, 25, 19, 0.88);
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
 }
 
 .btn-light {
-  background: rgba(255, 255, 255, 0.75);
-  color: #12221a;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  color: #0b1a13;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
 }
 
-.btn-light:hover {
-  background: rgba(255, 255, 255, 0.95);
-}
-
-/* Kicker */
+/* Kickers */
 .kicker {
   font-size: 11px;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   font-weight: 800;
   color: var(--lime-accent);
   display: flex;
   align-items: center;
-  gap: 10px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  gap: 8px;
 }
 .kicker::before {
   content: "";
   height: 2px;
-  width: 24px;
+  width: 18px;
   background: var(--lime-accent);
   box-shadow: 0 0 8px var(--lime-accent);
   border-radius: 2px;
 }
 
-/* Service Card Glass Styling */
+/* 7. Grid & Responsive Modules */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
-.service {
+.service-card {
   border-radius: 22px;
-  padding: 24px;
-  min-height: 200px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 22px;
+  min-height: 185px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.68);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 15px 35px -10px rgba(0,20,10,0.08);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 12px 30px -10px rgba(0, 20, 10, 0.08);
 }
 
-.service:hover {
-  transform: translateY(-6px) scale(1.02);
-  background: rgba(255, 255, 255, 0.82);
+.service-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.88);
   border-color: var(--lime-accent);
-  box-shadow: var(--shadow-hover), 0 0 20px rgba(180, 240, 56, 0.25);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2), 0 0 18px var(--lime-glow);
 }
 
 .service-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(230,245,210,0.8));
-  border: 1px solid rgba(255,255,255,0.9);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff, #eaf5d8);
+  border: 1px solid #ffffff;
   display: grid;
   place-items: center;
-  font-size: 22px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+  font-size: 19px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
 }
 
-/* Market Container */
-.market-container {
-  border-radius: 32px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.45);
+.market-panel {
+  border-radius: 28px;
+  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.48);
   backdrop-filter: blur(28px) saturate(200%);
   -webkit-backdrop-filter: blur(28px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25), inset 0 0 30px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
 }
 
-/* Search and Filter Tools */
+/* Horizontal Scroll Bar for Filters */
+.filters-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.filters-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-pill {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 10px 18px;
+  min-height: 44px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #12241b;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  touch-action: manipulation;
+}
+
+.filter-pill.active {
+  background: #091710;
+  color: var(--lime-accent);
+  border-color: #091710;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
 .search-input {
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
   border-radius: 100px;
-  padding: 14px 20px 14px 46px;
+  padding: 12px 18px 12px 42px;
   outline: none;
+  font-size: 16px; /* iOS Safari auto-zoom protection */
   font-weight: 500;
-  color: #11221a;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  color: #0b1a13;
+  transition: all 0.2s ease;
 }
 
 .search-input:focus {
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
   border-color: var(--lime-accent);
-  box-shadow: 0 0 0 4px rgba(180, 240, 56, 0.3);
-}
-
-.filter-btn {
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 9px 18px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1d3328;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
-}
-
-.filter-btn:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: translateY(-2px);
-}
-
-.filter-btn.active {
-  background: #0f2018;
-  color: var(--lime-accent);
-  border-color: #0f2018;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  box-shadow: 0 0 0 3px rgba(184, 245, 53, 0.35);
 }
 
 /* Creative Cards */
 .card {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(20px);
-  border-radius: 24px;
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 22px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-top: 1px solid rgba(255, 255, 255, 0.95);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.01);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 25px 50px rgba(0,15,10,0.18), 0 0 20px rgba(255,255,255,0.8) inset;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pill-glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 100px;
-  padding: 6px 12px;
-  font-size: 10px;
+  padding: 5px 11px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #12241b;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #0e2017;
 }
 
 .heart-btn {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   display: grid;
   place-items: center;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.heart-btn:hover {
-  transform: scale(1.15);
-  background: #fff;
+  touch-action: manipulation;
 }
 
 .heart-btn.saved {
   color: #f43f5e;
-  background: #fff;
+  background: #ffffff;
 }
 
-/* Modals */
+/* 8. Modals & Notifications */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(5, 14, 10, 0.65);
+  background: rgba(3, 10, 7, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
   z-index: 100;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 .modal-backdrop.open {
@@ -445,62 +453,60 @@ body {
 }
 
 .modal-glass {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(25px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-top: 1px solid rgba(255, 255, 255, 1);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-  border-radius: 30px;
-  width: min(580px, 100%);
-  max-height: 90vh;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+  border-radius: 26px;
+  width: min(540px, 92vw);
+  max-height: 85vh;
   overflow-y: auto;
-  padding: 32px;
+  padding: 24px;
   position: relative;
-  transform: scale(0.92);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-backdrop.open .modal-glass {
   transform: scale(1);
 }
 
-/* Form Inputs */
 .glass-input {
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 12px 14px;
   outline: none;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(6px);
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.88);
+  font-size: 16px; /* iOS Safari auto-zoom protection */
+  color: #0b1a13;
 }
 
 .glass-input:focus {
-  background: #fff;
-  border-color: #1f3a2c;
-  box-shadow: 0 0 0 3px rgba(31, 58, 44, 0.15);
+  background: #ffffff;
+  border-color: #12281d;
+  box-shadow: 0 0 0 3px rgba(18, 40, 29, 0.15);
 }
 
-/* Toast Notification */
 .toast-glass {
   position: fixed;
-  bottom: 28px;
+  bottom: 24px;
   left: 50%;
   transform: translate(-50%, 40px);
   opacity: 0;
-  background: rgba(15, 28, 22, 0.9);
+  background: rgba(12, 25, 19, 0.92);
   backdrop-filter: blur(16px);
-  color: white;
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 100px;
-  padding: 12px 24px;
-  font-size: 13px;
+  padding: 12px 22px;
+  font-size: 12px;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 120;
   pointer-events: none;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 15px rgba(180, 240, 56, 0.3);
+  max-width: calc(100% - 32px);
+  text-align: center;
 }
 
 .toast-glass.show {
@@ -508,250 +514,266 @@ body {
   transform: translate(-50%, 0);
 }
 
+/* 9. Media Queries for Seamless Responsiveness */
 @media (max-width: 850px) {
-  .nav { display: none; }
-  .topbar { height: 68px; border-radius: 20px; }
-  .service-grid { grid-template-columns: repeat(2, 1fr); }
-  .market-container { padding: 24px 18px; }
+  .nav-desktop { display: none; }
+  .topbar { height: 62px; margin-top: 8px; border-radius: 20px; }
+  .service-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .market-panel { padding: 22px 16px; border-radius: 22px; }
+}
+
+@media (max-width: 520px) {
+  .shell { width: calc(100% - 24px); }
+  .service-grid { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .hero-cta { flex-direction: column; width: 100%; }
+  .modal-glass { padding: 18px; border-radius: 20px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Animated Liquid Glass Background Mesh -->
+<!-- Animated Liquid Ambient Backdrop -->
 <div class="liquid-bg-container">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="orb orb-4"></div>
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
 </div>
 
 <!-- Floating Navigation Bar -->
 <header class="shell topbar glass-panel">
   <a class="logo" href="#">frame<b>folk.</b></a>
-  <nav class="nav">
+  <nav class="nav-desktop">
     <a href="#services">Services</a>
     <a href="#marketplace">Discover creatives</a>
     <a href="#how">How it works</a>
     <a href="#community">For creatives</a>
   </nav>
-  <div class="flex items-center gap-3">
-    <button class="btn btn-light hidden sm:inline-flex" onclick="openForm('creative')">Join network</button>
-    <button class="btn btn-lime" onclick="openForm('project')">Start project ↗</button>
+  <div class="flex items-center gap-2">
+    <button class="btn btn-lime text-xs px-4" onclick="openForm('project')">Start project ↗</button>
+    <button class="md:hidden w-11 h-11 rounded-full glass-panel flex items-center justify-center text-white text-lg font-bold shrink-0" onclick="toggleMobileDrawer()" id="menuToggleBtn" aria-label="Toggle navigation drawer">☰</button>
   </div>
 </header>
 
-<main class="mt-8">
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer glass-panel-dark md:hidden" id="mobileDrawer">
+  <a href="#services" class="text-white text-base font-bold py-2 border-b border-white/10" onclick="toggleMobileDrawer()">Services</a>
+  <a href="#marketplace" class="text-white text-base font-bold py-2 border-b border-white/10" onclick="toggleMobileDrawer()">Discover creatives</a>
+  <a href="#how" class="text-white text-base font-bold py-2 border-b border-white/10" onclick="toggleMobileDrawer()">How it works</a>
+  <a href="#community" class="text-white text-base font-bold py-2 border-b border-white/10" onclick="toggleMobileDrawer()">For creatives</a>
+  <button class="btn btn-light w-full mt-2" onclick="toggleMobileDrawer(); openForm('creative')">Join the network</button>
+</div>
+
+<main class="mt-4 sm:mt-8">
   <!-- Hero Section -->
-  <section class="shell py-12 md:py-20 grid md:grid-cols-2 gap-12 items-center">
+  <section class="shell py-6 sm:py-16 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
     <div>
       <div class="kicker">The creative network for growing businesses</div>
-      <h1 class="font-heading font-extrabold text-5xl sm:text-6xl md:text-7xl text-white tracking-tight my-6 leading-tight">
-        Make room for <span class="text-[var(--lime-accent)] drop-shadow-[0_0_25px_rgba(180,240,56,0.4)]">great</span> creative.
+      <h1 class="font-heading font-extrabold text-[clamp(32px,6.5vw,66px)] text-white tracking-tight my-4 sm:my-6 leading-[1.05]">
+        Make room for <span class="text-[var(--lime-accent)] drop-shadow-[0_0_25px_rgba(184,245,53,0.4)]">great</span> creative.
       </h1>
-      <p class="text-lg text-emerald-100/80 leading-relaxed max-w-lg mb-8 font-normal">
+      <p class="text-sm sm:text-base text-emerald-100/80 leading-relaxed max-w-lg mb-6 sm:mb-8 font-normal">
         A better way for small businesses to find photographers, filmmakers, designers and creative partners — and for independent talent to find meaningful work.
       </p>
-      <div class="flex flex-wrap gap-4 mb-10">
-        <a class="btn btn-lime text-base px-7 py-3.5" href="#marketplace">Explore the network ↗</a>
-        <a class="btn btn-light text-base px-7 py-3.5" href="#services">Explore services</a>
+      <div class="hero-cta flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
+        <a class="btn btn-lime text-sm sm:text-base px-6 py-3.5" href="#marketplace">Explore the network ↗</a>
+        <a class="btn btn-light text-sm sm:text-base px-6 py-3.5" href="#services">Explore services</a>
       </div>
-      <div class="flex items-center gap-4 text-xs font-semibold text-emerald-200/80">
-        <div class="flex -space-x-2">
-          <img class="w-9 h-9 rounded-full border-2 border-emerald-900 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=faces" alt="Creative member">
-          <img class="w-9 h-9 rounded-full border-2 border-emerald-900 object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces" alt="Creative member">
-          <img class="w-9 h-9 rounded-full border-2 border-emerald-900 object-cover" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&fit=crop&crop=faces" alt="Creative member">
+      <div class="flex items-center gap-3 text-xs font-semibold text-emerald-200/80">
+        <div class="flex -space-x-2 shrink-0">
+          <img class="w-8 h-8 rounded-full border-2 border-emerald-950 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=faces" alt="Creative member">
+          <img class="w-8 h-8 rounded-full border-2 border-emerald-950 object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces" alt="Creative member">
+          <img class="w-8 h-8 rounded-full border-2 border-emerald-950 object-cover" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&fit=crop&crop=faces" alt="Creative member">
         </div>
-        <span>Built for independent talent and ambitious small teams</span>
+        <span class="leading-tight">Built for independent talent & small teams</span>
       </div>
     </div>
 
-    <!-- Hero Visual Glass Showcase -->
-    <div class="relative h-[480px] w-full">
-      <div class="absolute inset-0 rounded-3xl overflow-hidden glass-panel p-3">
+    <!-- Hero Image & Labels -->
+    <div class="relative h-[280px] sm:h-[420px] w-full">
+      <div class="absolute inset-0 rounded-3xl overflow-hidden glass-panel p-2">
         <div class="w-full h-full rounded-2xl overflow-hidden relative">
           <img class="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-700" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1200&q=85&fit=crop" alt="Editorial production">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
         </div>
       </div>
       
-      <!-- Floating Glass Labels -->
-      <div class="absolute left-6 bottom-6 glass-panel p-5 rounded-2xl max-w-xs shadow-2xl">
-        <small class="block text-emerald-900/70 text-xs font-bold uppercase tracking-wider">Find your people. Make your thing.</small>
-        <strong class="font-heading font-extrabold text-slate-900 text-lg">Creative work, connected ✳</strong>
+      <div class="absolute left-3 sm:left-6 bottom-3 sm:bottom-6 glass-panel p-3.5 sm:p-5 rounded-2xl max-w-[210px] sm:max-w-xs shadow-2xl">
+        <small class="block text-emerald-950/70 text-[10px] font-bold uppercase tracking-wider">Find your people. Make your thing.</small>
+        <strong class="font-heading font-extrabold text-slate-950 text-xs sm:text-base leading-snug block mt-0.5">Creative work, connected ✳</strong>
       </div>
 
-      <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full glass-panel flex items-center justify-center text-center font-heading font-extrabold text-xs leading-tight text-slate-950 rotate-12 bg-[var(--lime-accent)]/80 shadow-lg">
+      <div class="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 w-20 h-20 sm:w-24 sm:h-24 rounded-full glass-panel flex items-center justify-center text-center font-heading font-extrabold text-[10px] sm:text-xs leading-tight text-slate-950 rotate-12 bg-[var(--lime-accent)]/85 shadow-lg">
         GOOD<br>IDEAS<br>GROW HERE
       </div>
     </div>
   </section>
 
   <!-- Metrics Bar -->
-  <section class="shell my-12">
-    <div class="glass-panel-dark rounded-3xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-white text-center md:text-left">
-      <div class="md:border-r border-white/10 md:pr-6">
-        <strong class="font-heading font-extrabold text-3xl sm:text-4xl text-[var(--lime-accent)] block mb-1">01 — 1</strong>
-        <span class="text-xs font-medium text-emerald-200/70 uppercase tracking-wider">One place to discover talent</span>
+  <section class="shell my-8 sm:my-12">
+    <div class="glass-panel-dark rounded-2xl sm:rounded-3xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-white text-center md:text-left">
+      <div class="border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 md:pr-6">
+        <strong class="font-heading font-extrabold text-2xl sm:text-4xl text-[var(--lime-accent)] block mb-1">01 — 1</strong>
+        <span class="text-[11px] font-medium text-emerald-200/70 uppercase tracking-wider">One place to discover talent</span>
       </div>
-      <div class="md:border-r border-white/10 md:px-6">
-        <strong class="font-heading font-extrabold text-3xl sm:text-4xl text-teal-300 block mb-1">Many</strong>
-        <span class="text-xs font-medium text-emerald-200/70 uppercase tracking-wider">Creative services & specialists</span>
+      <div class="border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 md:px-6">
+        <strong class="font-heading font-extrabold text-2xl sm:text-4xl text-teal-300 block mb-1">Many</strong>
+        <span class="text-[11px] font-medium text-emerald-200/70 uppercase tracking-wider">Creative services & specialists</span>
       </div>
       <div class="md:pl-6">
-        <strong class="font-heading font-extrabold text-3xl sm:text-4xl text-emerald-300 block mb-1">∞</strong>
-        <span class="text-xs font-medium text-emerald-200/70 uppercase tracking-wider">Possibilities for collaboration</span>
+        <strong class="font-heading font-extrabold text-2xl sm:text-4xl text-emerald-300 block mb-1">∞</strong>
+        <span class="text-[11px] font-medium text-emerald-200/70 uppercase tracking-wider">Possibilities for collaboration</span>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="shell py-16" id="services">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+  <!-- Services Grid Section -->
+  <section class="shell py-8 sm:py-16" id="services">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
       <div>
-        <div class="kicker mb-3">What can we help you create?</div>
-        <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+        <div class="kicker mb-2">What can we help you create?</div>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight">
           Creative support,<br>without the complexity.
         </h2>
       </div>
-      <p class="text-emerald-100/70 text-sm max-w-md leading-relaxed">
+      <p class="text-emerald-100/70 text-xs sm:text-sm max-w-md leading-relaxed">
         Find a specialist for one important shoot, or bring together a complete team for your next campaign. Start with the service you need.
       </p>
     </div>
 
     <div class="service-grid">
-      <div class="service glass-specular" onclick="chooseService('Photography')">
+      <div class="service-card glass-specular" onclick="chooseService('Photography')">
         <div class="service-icon">📷</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Photography</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Product, food, portrait, fashion, interiors and event shoots.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Find photographers ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">Photography</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Product, food, portrait, fashion, interiors and event shoots.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Find photographers ↗</span>
       </div>
-      <div class="service glass-specular" onclick="chooseService('Video')">
+      <div class="service-card glass-specular" onclick="chooseService('Video')">
         <div class="service-icon">🎥</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Video & film</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Brand films, reels, interviews, events and post-production.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Find video teams ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">Video & film</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Brand films, reels, interviews, events and post-production.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Find video teams ↗</span>
       </div>
-      <div class="service glass-specular" onclick="chooseService('Branding')">
+      <div class="service-card glass-specular" onclick="chooseService('Branding')">
         <div class="service-icon">✳</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Branding & design</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Identity, logos, packaging, campaigns and visual systems.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Find designers ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">Branding & design</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Identity, logos, packaging, campaigns and visual systems.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Find designers ↗</span>
       </div>
-      <div class="service glass-specular" onclick="chooseService('Social media')">
+      <div class="service-card glass-specular" onclick="chooseService('Social media')">
         <div class="service-icon">▣</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Social media</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Content planning, social campaigns and channel management.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Find social experts ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">Social media</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Content planning, social campaigns and channel management.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Find social experts ↗</span>
       </div>
-      <div class="service glass-specular" onclick="chooseService('E-commerce')">
+      <div class="service-card glass-specular" onclick="chooseService('E-commerce')">
         <div class="service-icon">🛍</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">E-commerce content</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Catalogues, product styling and marketplace-ready assets.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Explore services ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">E-commerce content</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Catalogues, product styling and marketplace-ready assets.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Explore services ↗</span>
       </div>
-      <div class="service glass-specular" onclick="chooseService('Creative direction')">
+      <div class="service-card glass-specular" onclick="chooseService('Creative direction')">
         <div class="service-icon">✎</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Creative direction</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Concepts, moodboards, styling and campaign direction.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Find creative leads ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">Creative direction</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Concepts, moodboards, styling and campaign direction.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Find creative leads ↗</span>
       </div>
-      <div class="service glass-specular" onclick="chooseService('Web & digital')">
+      <div class="service-card glass-specular" onclick="chooseService('Web & digital')">
         <div class="service-icon">⌘</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Web & digital</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Portfolio sites, landing pages and digital experiences.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Find digital talent ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">Web & digital</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Portfolio sites, landing pages and digital experiences.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Find digital talent ↗</span>
       </div>
-      <div class="service glass-specular" onclick="chooseService('Production support')">
+      <div class="service-card glass-specular" onclick="chooseService('Production support')">
         <div class="service-icon">✦</div>
-        <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Production support</h3>
-        <p class="text-xs text-slate-600 leading-relaxed mb-4">Studios, equipment, assistants and specialist crew.</p>
-        <span class="text-xs font-bold text-emerald-800 flex items-center gap-1">Build your team ↗</span>
+        <h3 class="font-heading font-bold text-slate-950 text-base mb-1.5">Production support</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-3">Studios, equipment, assistants and specialist crew.</p>
+        <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">Build your team ↗</span>
       </div>
     </div>
   </section>
 
-  <!-- Directory Section -->
-  <section class="shell py-12" id="marketplace">
-    <div class="market-container">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
+  <!-- Marketplace Directory -->
+  <section class="shell py-8 sm:py-12" id="marketplace">
+    <div class="market-panel">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
         <div>
-          <div class="kicker text-emerald-900 mb-2">The Framefolk directory</div>
-          <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-950 tracking-tight">Meet your next creative partner.</h2>
-          <p class="text-slate-600 text-xs sm:text-sm mt-1 max-w-lg">Browse a sample of the talent you could discover. Search by name or specialty, then open a profile to learn more.</p>
+          <div class="kicker text-emerald-950 mb-1">The Framefolk directory</div>
+          <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-slate-950 tracking-tight">Meet your next creative partner.</h2>
+          <p class="text-slate-700 text-xs sm:text-sm mt-1 max-w-lg">Browse a sample of the talent you could discover. Search by name or specialty, then open a profile to learn more.</p>
         </div>
-        <button class="btn btn-dark shrink-0" onclick="openForm('creative')">List your services ↗</button>
+        <button class="btn btn-dark w-full md:w-auto shrink-0" onclick="openForm('creative')">List your services ↗</button>
       </div>
 
       <!-- Controls & Search -->
-      <div class="flex flex-col sm:flex-row justify-between gap-4 items-stretch sm:items-center mb-6">
-        <div class="relative flex-1 max-w-md">
+      <div class="flex flex-col sm:flex-row justify-between gap-3 items-stretch sm:items-center mb-5">
+        <div class="relative flex-1">
           <input id="search" type="search" placeholder="Search by service, name or keyword..." oninput="renderCards()" class="search-input">
-          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-bold text-lg pointer-events-none">⌕</span>
+          <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 font-bold text-lg pointer-events-none">⌕</span>
         </div>
-        <select id="sort" onchange="renderCards()" class="search-input !w-auto !py-3 !px-5 text-xs font-bold cursor-pointer">
+        <select id="sort" onchange="renderCards()" class="search-input !w-full sm:!w-auto !py-3 !px-4 text-xs font-bold cursor-pointer">
           <option value="featured">Sort: Featured</option>
           <option value="az">Name: A to Z</option>
           <option value="rating">Top rated</option>
         </select>
       </div>
 
-      <!-- Filters -->
-      <div class="flex flex-wrap gap-2 mb-6" id="filters">
-        <button class="filter-btn active" data-cat="All" onclick="setCategory('All')">All creatives</button>
-        <button class="filter-btn" data-cat="Photography" onclick="setCategory('Photography')">Photography</button>
-        <button class="filter-btn" data-cat="Video" onclick="setCategory('Video')">Video</button>
-        <button class="filter-btn" data-cat="Branding" onclick="setCategory('Branding')">Branding</button>
-        <button class="filter-btn" data-cat="Social media" onclick="setCategory('Social media')">Social media</button>
-        <button class="filter-btn" data-cat="Digital" onclick="setCategory('Digital')">Digital</button>
+      <!-- Filter Pills (Scrollable Bar) -->
+      <div class="filters-scroll mb-5" id="filters">
+        <button class="filter-pill active" data-cat="All" onclick="setCategory('All')">All creatives</button>
+        <button class="filter-pill" data-cat="Photography" onclick="setCategory('Photography')">Photography</button>
+        <button class="filter-pill" data-cat="Video" onclick="setCategory('Video')">Video</button>
+        <button class="filter-pill" data-cat="Branding" onclick="setCategory('Branding')">Branding</button>
+        <button class="filter-pill" data-cat="Social media" onclick="setCategory('Social media')">Social media</button>
+        <button class="filter-pill" data-cat="Digital" onclick="setCategory('Digital')">Digital</button>
       </div>
 
-      <div class="flex justify-between items-center text-xs font-semibold text-slate-600 mb-6 px-1">
+      <div class="flex flex-col sm:flex-row gap-1 sm:gap-0 justify-between items-start sm:items-center text-xs font-semibold text-slate-700 mb-5 px-1">
         <span id="resultCount">Showing creative profiles</span>
         <span class="text-rose-700">♡ Save profiles to your shortlist</span>
       </div>
 
-      <!-- Grid Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cards"></div>
+      <!-- Profile Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="cards"></div>
       
-      <div class="hidden text-center py-16 text-slate-600 font-medium text-sm" id="noResults">
+      <div class="hidden text-center py-12 text-slate-700 font-medium text-xs sm:text-sm" id="noResults">
         No matches found. Try a different search term or category filter.
       </div>
 
-      <p class="text-[11px] text-slate-500 mt-6 text-center">Demo directory: sample profiles and ratings are illustrative, not verified listings.</p>
+      <p class="text-[10px] sm:text-[11px] text-slate-600 mt-6 text-center">Demo directory: sample profiles and ratings are illustrative, not verified listings.</p>
     </div>
   </section>
 
-  <!-- How it Works -->
-  <section class="shell py-16" id="how">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="h-[440px] rounded-3xl overflow-hidden glass-panel p-3">
+  <!-- How It Works Section -->
+  <section class="shell py-8 sm:py-16" id="how">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div class="h-[220px] sm:h-[360px] rounded-3xl overflow-hidden glass-panel p-2">
         <img class="w-full h-full object-cover rounded-2xl" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1100&q=85&fit=crop" alt="Creative workspace">
       </div>
       <div>
-        <div class="kicker mb-3">A simple way to get started</div>
-        <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-6 tracking-tight">From first brief to finished work.</h2>
-        <p class="text-emerald-100/70 text-sm leading-relaxed mb-8">Whether you are a founder planning your first product shoot or a photographer looking for your next client, Framefolk makes the first connection easier.</p>
+        <div class="kicker mb-2">A simple way to get started</div>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white mb-4 sm:mb-6 tracking-tight">From first brief to finished work.</h2>
+        <p class="text-emerald-100/70 text-xs sm:text-sm leading-relaxed mb-6">Whether you are a founder planning your first product shoot or a photographer looking for your next client, Framefolk makes the first connection easier.</p>
         
-        <div class="space-y-6">
-          <div class="flex gap-4 items-start">
-            <div class="w-10 h-10 rounded-full bg-[var(--lime-accent)] text-slate-950 font-extrabold flex items-center justify-center shrink-0 shadow-lg">1</div>
+        <div class="space-y-5">
+          <div class="flex gap-3.5 items-start">
+            <div class="w-9 h-9 rounded-full bg-[var(--lime-accent)] text-slate-950 font-extrabold flex items-center justify-center shrink-0 shadow-lg text-xs">1</div>
             <div>
-              <h3 class="font-heading font-bold text-white text-base mb-1">Share what you need</h3>
+              <h3 class="font-heading font-bold text-white text-sm mb-1">Share what you need</h3>
               <p class="text-xs text-emerald-100/70 leading-relaxed">Tell us about your project, goals, preferred timeline and budget.</p>
             </div>
           </div>
-          <div class="flex gap-4 items-start">
-            <div class="w-10 h-10 rounded-full bg-[var(--lime-accent)] text-slate-950 font-extrabold flex items-center justify-center shrink-0 shadow-lg">2</div>
+          <div class="flex gap-3.5 items-start">
+            <div class="w-9 h-9 rounded-full bg-[var(--lime-accent)] text-slate-950 font-extrabold flex items-center justify-center shrink-0 shadow-lg text-xs">2</div>
             <div>
-              <h3 class="font-heading font-bold text-white text-base mb-1">Discover the right fit</h3>
+              <h3 class="font-heading font-bold text-white text-sm mb-1">Discover the right fit</h3>
               <p class="text-xs text-emerald-100/70 leading-relaxed">Explore portfolios and specialties to find people who understand your vision.</p>
             </div>
           </div>
-          <div class="flex gap-4 items-start">
-            <div class="w-10 h-10 rounded-full bg-[var(--lime-accent)] text-slate-950 font-extrabold flex items-center justify-center shrink-0 shadow-lg">3</div>
+          <div class="flex gap-3.5 items-start">
+            <div class="w-9 h-9 rounded-full bg-[var(--lime-accent)] text-slate-950 font-extrabold flex items-center justify-center shrink-0 shadow-lg text-xs">3</div>
             <div>
-              <h3 class="font-heading font-bold text-white text-base mb-1">Connect and create</h3>
+              <h3 class="font-heading font-bold text-white text-sm mb-1">Connect and create</h3>
               <p class="text-xs text-emerald-100/70 leading-relaxed">Reach out, discuss details and make something worth sharing.</p>
             </div>
           </div>
@@ -760,56 +782,56 @@ body {
     </div>
   </section>
 
-  <!-- Community Dual Cards -->
-  <section class="shell py-16" id="community">
-    <div class="mb-10">
+  <!-- Community Section -->
+  <section class="shell py-8 sm:py-16" id="community">
+    <div class="mb-8">
       <div class="kicker mb-2">Two sides. One creative community.</div>
-      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">Wherever you are in your creative journey.</h2>
+      <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white">Wherever you are in your creative journey.</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-6">
-      <div class="glass-panel-dark rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+      <div class="glass-panel-dark rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between min-h-[250px]">
         <div>
-          <div class="kicker text-[var(--lime-accent)] mb-3">For businesses</div>
-          <h3 class="font-heading font-extrabold text-3xl text-white mb-4 max-w-xs">Make your brand impossible to ignore.</h3>
+          <div class="kicker text-[var(--lime-accent)] mb-2">For businesses</div>
+          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white mb-3 max-w-xs">Make your brand impossible to ignore.</h3>
           <p class="text-xs text-emerald-100/70 leading-relaxed max-w-sm mb-6">Find the right creative talent for your next product shoot, campaign, launch or brand refresh.</p>
         </div>
         <div>
-          <button class="btn btn-lime" onclick="openForm('project')">I need creative services ↗</button>
+          <button class="btn btn-lime w-full sm:w-auto" onclick="openForm('project')">I need creative services ↗</button>
         </div>
-        <div class="absolute right-6 bottom-0 font-heading font-extrabold text-[140px] text-white/5 pointer-events-none select-none">B</div>
+        <div class="absolute right-4 bottom-0 font-heading font-extrabold text-[90px] text-white/5 pointer-events-none select-none">B</div>
       </div>
 
-      <div class="glass-panel rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+      <div class="glass-panel rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between min-h-[250px]">
         <div>
-          <div class="kicker text-emerald-900 mb-3">For creatives</div>
-          <h3 class="font-heading font-extrabold text-3xl text-slate-950 mb-4 max-w-xs">Let the right clients find your work.</h3>
-          <p class="text-xs text-slate-700 leading-relaxed max-w-sm mb-6">Showcase your portfolio, share your services and connect with businesses looking for your skills.</p>
+          <div class="kicker text-emerald-950 mb-2">For creatives</div>
+          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-slate-950 mb-3 max-w-xs">Let the right clients find your work.</h3>
+          <p class="text-xs text-slate-800 leading-relaxed max-w-sm mb-6">Showcase your portfolio, share your services and connect with businesses looking for your skills.</p>
         </div>
         <div>
-          <button class="btn btn-dark" onclick="openForm('creative')">Join as a creative ↗</button>
+          <button class="btn btn-dark w-full sm:w-auto" onclick="openForm('creative')">Join as a creative ↗</button>
         </div>
-        <div class="absolute right-6 bottom-0 font-heading font-extrabold text-[140px] text-slate-900/10 pointer-events-none select-none">C</div>
+        <div class="absolute right-4 bottom-0 font-heading font-extrabold text-[90px] text-slate-950/10 pointer-events-none select-none">C</div>
       </div>
     </div>
   </section>
 
-  <!-- Bottom Glass Banner -->
-  <section class="shell my-16">
-    <div class="glass-panel-dark rounded-3xl p-10 md:p-14 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 relative overflow-hidden">
+  <!-- CTA Banner -->
+  <section class="shell my-8 sm:my-16">
+    <div class="glass-panel-dark rounded-3xl p-6 sm:p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
       <div class="relative z-10">
-        <div class="kicker text-[var(--lime-accent)] mb-3">Your next collaboration starts here</div>
-        <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">Good work starts<br>with a good connection.</h2>
+        <div class="kicker text-[var(--lime-accent)] mb-2">Your next collaboration starts here</div>
+        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-tight mb-3">Good work starts<br>with a good connection.</h2>
         <p class="text-emerald-100/70 text-xs sm:text-sm max-w-md">Bring your idea, your ambition or your creative skills. Let's find what we can make together.</p>
       </div>
-      <button class="btn btn-lime text-base px-8 py-4 shrink-0 relative z-10" onclick="openForm('project')">Tell us about your project ↗</button>
+      <button class="btn btn-lime text-sm sm:text-base px-7 py-3.5 w-full md:w-auto shrink-0 relative z-10" onclick="openForm('project')">Tell us about your project ↗</button>
     </div>
   </section>
 </main>
 
-<footer class="shell py-10 flex flex-col sm:flex-row justify-between items-center gap-6 text-emerald-100/60 text-xs border-t border-white/10 mt-10">
+<footer class="shell py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-emerald-100/60 text-xs border-t border-white/10 mt-8 text-center sm:text-left">
   <a class="logo" href="#">frame<b>folk.</b></a>
   <span>Connecting good people with good creative work.</span>
-  <div class="flex gap-6 font-semibold text-emerald-100/80">
+  <div class="flex gap-4 font-semibold text-emerald-100/80">
     <a href="#services" class="hover:text-white">Services</a>
     <a href="#marketplace" class="hover:text-white">Directory</a>
     <a href="#how" class="hover:text-white">How it works</a>
@@ -817,15 +839,15 @@ body {
   <span>© 2026 Framefolk · Concept</span>
 </footer>
 
-<!-- Glass Modal Component -->
+<!-- Glass Modal Dialog -->
 <div class="modal-backdrop" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal-glass">
-    <button class="absolute top-6 right-6 w-9 h-9 rounded-full bg-slate-200/60 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center transition-colors" onclick="closeModal()">✕</button>
+    <button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-900 font-bold flex items-center justify-center transition-colors" onclick="closeModal()" aria-label="Close modal">✕</button>
     <div id="modalContent"></div>
   </div>
 </div>
 
-<!-- Glass Toast Notification -->
+<!-- Toast Container -->
 <div class="toast-glass" id="toast"></div>
 
 <script>
@@ -842,7 +864,14 @@ const profiles = [
 ];
 
 let category = "All";
-let saved = new Set();
+const saved = new Set();
+
+function toggleMobileDrawer() {
+  const drawer = document.getElementById('mobileDrawer');
+  const btn = document.getElementById('menuToggleBtn');
+  const isActive = drawer.classList.toggle('active');
+  btn.textContent = isActive ? '✕' : '☰';
+}
 
 function renderCards() {
   const query = document.getElementById('search').value.toLowerCase();
@@ -867,24 +896,24 @@ function renderCards() {
     container.innerHTML = list.map(p => `
       <article class="card glass-specular flex flex-col justify-between">
         <div>
-          <div class="relative h-48 w-full overflow-hidden">
+          <div class="relative h-44 sm:h-48 w-full overflow-hidden">
             <img src="${p.image}" alt="${p.cat} portfolio sample" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
             <span class="pill-glass absolute top-3 left-3">${p.cat}</span>
-            <button class="heart-btn ${saved.has(p.id) ? 'saved' : ''} absolute top-3 right-3" aria-label="Save ${p.name}" onclick="toggleSave(${p.id}, event)">
+            <button class="heart-btn ${saved.has(p.id) ? 'saved' : ''} absolute top-2.5 right-2.5" aria-label="Save ${p.name}" onclick="toggleSave(${p.id}, event)">
               ${saved.has(p.id) ? '♥' : '♡'}
             </button>
           </div>
-          <div class="p-5">
-            <div class="flex justify-between items-center mb-2">
-              <h3 class="font-heading font-bold text-slate-950 text-base">${p.name}</h3>
-              <span class="text-xs font-bold text-amber-600 bg-amber-100/60 px-2 py-0.5 rounded-md">★ ${p.rating.toFixed(1)}</span>
+          <div class="p-4 sm:p-5">
+            <div class="flex justify-between items-center mb-1.5">
+              <h3 class="font-heading font-bold text-slate-950 text-sm sm:text-base">${p.name}</h3>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md">★ ${p.rating.toFixed(1)}</span>
             </div>
-            <p class="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">${p.desc}</p>
+            <p class="text-xs text-slate-700 leading-relaxed mb-3 line-clamp-2">${p.desc}</p>
           </div>
         </div>
-        <div class="p-5 pt-0 flex justify-between items-center border-t border-slate-200/50 mt-2">
-          <span class="text-[11px] font-medium text-slate-500">${p.place}</span>
-          <button class="text-xs font-bold text-emerald-800 hover:text-emerald-950 transition-colors" onclick="showProfile(${p.id})">View profile ↗</button>
+        <div class="p-4 sm:p-5 pt-0 flex justify-between items-center border-t border-slate-200/60 mt-1">
+          <span class="text-[10px] sm:text-[11px] font-medium text-slate-600">${p.place}</span>
+          <button class="text-xs font-bold text-emerald-900 hover:text-emerald-950 transition-colors" onclick="showProfile(${p.id})">View profile ↗</button>
         </div>
       </article>
     `).join('');
@@ -895,7 +924,7 @@ function renderCards() {
 
 function setCategory(c) {
   category = c;
-  document.querySelectorAll('.filter-btn').forEach(btn => {
+  document.querySelectorAll('.filter-pill').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.cat === c);
   });
   renderCards();
@@ -926,14 +955,14 @@ function toggleSave(id, e) {
 function showProfile(id) {
   const p = profiles.find(x => x.id === id);
   document.getElementById('modalContent').innerHTML = `
-    <div class="kicker text-emerald-900 mb-1">${p.cat} · Creative profile</div>
+    <div class="kicker text-emerald-950 mb-1">${p.cat} · Creative profile</div>
     <h2 class="font-heading font-extrabold text-2xl text-slate-950 mb-4">${p.name}</h2>
-    <img class="w-full h-48 object-cover rounded-xl mb-4 shadow-md" src="${p.image}" alt="${p.name} portfolio">
-    <p class="text-xs text-slate-700 leading-relaxed mb-4">${p.about}</p>
+    <img class="w-full h-44 object-cover rounded-xl mb-4 shadow-md" src="${p.image}" alt="${p.name} portfolio">
+    <p class="text-xs text-slate-800 leading-relaxed mb-4">${p.about}</p>
     <div class="flex flex-wrap gap-1.5 mb-4">
-      ${p.tags.map(t => `<span class="bg-emerald-100/70 border border-emerald-200 text-emerald-900 text-[10px] font-bold px-2.5 py-1 rounded-full">${t}</span>`).join('')}
+      ${p.tags.map(t => `<span class="bg-emerald-100/80 border border-emerald-300/80 text-emerald-950 text-[10px] font-bold px-2.5 py-1 rounded-full">${t}</span>`).join('')}
     </div>
-    <div class="text-xs text-slate-600 space-y-1 mb-6 bg-slate-100/60 p-3 rounded-xl border border-slate-200/50">
+    <div class="text-xs text-slate-700 space-y-1 mb-6 bg-slate-100/80 p-3.5 rounded-xl border border-slate-200">
       <p><b>Location:</b> ${p.place}</p>
       <p><b>Typical engagement:</b> ${p.price}</p>
       <p><b>Rating:</b> ★ ${p.rating.toFixed(1)}</p>
@@ -946,25 +975,25 @@ function showProfile(id) {
 function openForm(kind, provider = "") {
   const title = kind === 'creative' ? 'Join the Framefolk network' : 'Tell us about your project';
   document.getElementById('modalContent').innerHTML = `
-    <div class="kicker text-emerald-900 mb-1">Let's make a connection</div>
+    <div class="kicker text-emerald-950 mb-1">Let's make a connection</div>
     <h2 class="font-heading font-extrabold text-2xl text-slate-950 mb-2">${title}</h2>
-    <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+    <p class="text-xs text-slate-700 mb-5 leading-relaxed">
       ${kind === 'creative' ? 'Introduce yourself and the services you offer.' : 'Share a few details so the right creative partner can understand your project.'}
     </p>
-    <form id="leadForm" onsubmit="submitLead(event)" class="space-y-4">
+    <form id="leadForm" onsubmit="submitLead(event)" class="space-y-3.5">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 mb-1">Your name *</label>
+          <label class="block text-[11px] font-bold text-slate-800 mb-1">Your name *</label>
           <input required placeholder="Full name" class="glass-input text-xs">
         </div>
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 mb-1">Email address *</label>
+          <label class="block text-[11px] font-bold text-slate-800 mb-1">Email address *</label>
           <input type="email" required placeholder="you@example.com" class="glass-input text-xs">
         </div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 mb-1">I am a...</label>
+          <label class="block text-[11px] font-bold text-slate-800 mb-1">I am a...</label>
           <select class="glass-input text-xs">
             <option>Small business owner</option>
             <option>Photographer</option>
@@ -975,7 +1004,7 @@ function openForm(kind, provider = "") {
           </select>
         </div>
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 mb-1">Service of interest</label>
+          <label class="block text-[11px] font-bold text-slate-800 mb-1">Service of interest</label>
           <select class="glass-input text-xs">
             <option>${provider || 'Photography'}</option>
             <option>Video & film</option>
@@ -988,11 +1017,11 @@ function openForm(kind, provider = "") {
         </div>
       </div>
       <div>
-        <label class="block text-[11px] font-bold text-slate-700 mb-1">${kind === 'creative' ? 'Portfolio or website link' : 'Project details'}</label>
+        <label class="block text-[11px] font-bold text-slate-800 mb-1">${kind === 'creative' ? 'Portfolio or website link' : 'Project details'}</label>
         <textarea rows="3" class="glass-input text-xs" placeholder="${kind === 'creative' ? 'Add your portfolio URL and a short introduction...' : 'What are you looking to create? Include timeline or budget if known...'}"></textarea>
       </div>
       <button class="btn btn-lime w-full text-center justify-center py-3 mt-2" type="submit">Submit enquiry ↗</button>
-      <div class="hidden bg-emerald-100 text-emerald-800 p-3 rounded-xl text-xs font-semibold mt-3" id="formSuccess">
+      <div class="hidden bg-emerald-100 text-emerald-900 p-3 rounded-xl text-xs font-semibold mt-3" id="formSuccess">
         Thank you! Your enquiry has been submitted locally.
       </div>
     </form>
